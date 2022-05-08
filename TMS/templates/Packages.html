@@ -1,0 +1,190 @@
+{% load static %}
+{% static 'images' as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Management System</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/package.css'%}">
+
+</head>
+<body>
+    
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i><span>G</span>antabya</a>
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}">home</a>
+        <a href="{% url 'AboutUs'%}">about</a>
+        <a href="{% url 'Packages'%}">packages</a>
+        <a href="{% url 'Reviews'%}">reviews</a>
+        <a href="{% url 'Gallery'%}">Gallery</a>
+        <a href="{% url 'login'%}">login</a>
+        <a href="{% url 'logout'%}">logout</a>
+        {%  if user.is_superuser %}
+        <a href='admin'>dashboard</a>
+        {% endif %}
+    </nav>
+
+</header>
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+
+    <h1 class="heading">
+        <span>p</span>
+        <span>a</span>
+        <span>c</span>
+        <span>k</span>
+        <span>a</span>
+        <span>g</span>
+        <span>e</span>
+        <span>s</span>
+    </h1>
+    
+  
+    <div class="box-container">
+        
+        <!-- <div class="box">
+            <img src="{% static 'images/Kathmandu.jpeg' %}" alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i>Kathmandu </h3>
+                <p>Capital city of Nepal and also knowns as city of temples.</p>
+               
+                <div class="price"> $90.00 <span>$120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div> -->
+      <!-- <div class="box">
+            <img src="{{dest.img.url}}" alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> Nagarkot </h3>
+                <p>The hill-top town of Nagarkot is a popular short-break destination from Kathmandu.</p>
+                
+                <div class="price"> $90.00 <span>$120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div> -->
+          {% for dest in dests %}
+        
+        <div class="box">
+            <img src="{{dest.img.url}}" alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> {{dest.name}}</h3>
+                <p>{{dest.desc}}</p>
+                
+                <div class="price"> Rs{{dest.price}}</div>
+                <a href="{% url 'book'%}" class="btn">book now</a>
+            </div>
+        </div>
+
+
+          <!-- <div class="box">
+            <img src="{% static 'images/Lumbini.jpeg' %}"  alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i>Lumbini </h3>
+                <p>Lumbini is a village, archaeological site, and place of pilgrimage honored as the birthplace of Lord Siddhartha Gautama.</p>
+                
+                <div class="price"> $90.00 <span>$120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/Ghandruk.jpg' %}"  alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> Ghandruk </h3>
+                <p>Ghandruk village is a famous for its beauty and also great trekking option for a short treks </p>
+               
+                <div class="price"> $90.00 <span>$120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/Pokhara.jpg' %}"  alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> Pokhara </h3>
+                <p>Pokhara City is one of the most popular tourist places in Nepal. It lies in the Annapurna mountain range and has many places to see and offers numerous outdoor activities including the Everest base camp trek. </p>
+               
+                <div class="price"> $90.00 <span>$120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/Mustang.jpg' %}"  alt="">
+            <div class="content">
+                <h3> <i class="fas fa-map-marker-alt"></i> Mustang </h3>
+                <p>The Upper Mustang trek in to the remote Trans-Himalayan Region of this semi-independent Tibetan Kingdom offers an adventurous 14 day itinerary with spectacular trekking through striking semi-arid desert with colourful rock formations, deep ravines and snow-capped peaks surrounding you</p>
+              
+                <div class="price"> $90.00 <span>$120.00</span> </div>
+                <a href="#" class="btn">book now</a>
+            </div>
+        </div> -->
+        {% endfor %}
+
+
+    </div>
+   
+</section>
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+ 
+       <div class="box">
+          <h3>quick links</h3>
+          <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
+          <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
+          <a href="packages.html"> <i class="fas fa-angle-right"></i> package</a>
+          <a href="booking.html"> <i class="fas fa-angle-right"></i> book</a>
+       </div>
+ 
+       <div class="box">
+          <h3>contact info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +977-9818709813 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +977 4445678 </a>
+          <a href="#"> <i class="fas fa-envelope"></i> Gantabya777@gmail.com </a>
+          <a href="#"> <i class="fas fa-map"></i> Kathmandu, Boudha - 44600 </a>
+       </div>
+ 
+    </div>
+ 
+ </section>
+ 
+ <!-- footer section ends -->
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'js/package.js' %}"></script>
+
+</body>
+</html>
+
+
+
+

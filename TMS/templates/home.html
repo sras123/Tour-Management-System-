@@ -1,0 +1,241 @@
+
+{% load static %}
+{% static 'images' as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Management System</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/package.css'%}">
+    
+    
+
+
+
+</head>
+<body>
+    
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i><span>G</span>antabya</a>
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}">home</a>
+        <a href="{% url 'AboutUs'%}">about</a>
+        <a href="{% url 'Packages'%}">packages</a>
+        <a href="{% url 'Reviews'%}">reviews</a>
+        <a href="{% url 'Gallery'%}">Gallery</a>
+        <a href="{% url 'login'%}">login</a>
+        <a href="{% url 'logout'%}">logout</a>
+        {%  if user.is_superuser %}
+        <a href='admin'>dashboard</a>
+        {% endif %}
+    </nav>
+
+</header>
+
+
+
+
+<!-- home section starts  -->
+
+<style>
+    body,
+#slider,
+.wrap,
+.slide-content {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrap {
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide1 {
+  background-image: url("https://images.pexels.com/photos/3714145/pexels-photo-3714145.jpeg");
+}
+.slide2 {
+  background-image: url("https://images.pexels.com/photos/4360449/pexels-photo-4360449.jpeg?cs=srgb&dl=pexels-sulav-loktam-4360449.jpg&fm=jpg");
+}
+.slide3 {
+  background-image: url("https://images.pexels.com/photos/9783626/pexels-photo-9783626.jpeg?cs=srgb&dl=pexels-ashok-sharma-9783626.jpg&fm=jpg");
+}
+
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content span {
+  font-size: 5rem;
+  color: #fff;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent #fff transparent transparent;
+  left: 0;
+  margin-left: 30px;
+}
+
+#arrow-right {
+  border-width: 30px 0 30px 40px;
+  border-color: transparent transparent transparent #fff;
+  right: 0;
+  margin-right: 30px;
+}
+
+</style>
+
+<div class="wrap">
+    <div id="arrow-left" class="arrow"></div>
+    <div id="slider">
+      <div class="slide slide1">
+        <div class="slide-content">
+          
+        </div>
+      </div>
+      <div class="slide slide2">
+        <div class="slide-content">
+          
+        </div>
+      </div>
+      <div class="slide slide3">
+        <div class="slide-content">
+         
+        </div>
+      
+      </div>
+    </div>
+    <div id="arrow-right" class="arrow"></div>
+  </div>
+  <!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+ 
+       <div class="box">
+          <h3>quick links</h3>
+          <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
+          <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
+          <a href="packages.html"> <i class="fas fa-angle-right"></i> package</a>
+          <a href="booking.html"> <i class="fas fa-angle-right"></i> book</a>
+       </div>
+ 
+       <div class="box">
+          <h3>contact info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +977-9818709813 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +977 4445678 </a>
+          <a href="#"> <i class="fas fa-envelope"></i> Gantabya777@gmail.com </a>
+          <a href="#"> <i class="fas fa-map"></i> Kathmandu, Boudha - 44600 </a>
+       </div>
+ 
+    </div>
+ 
+ </section>
+  <script>
+    let sliderImages = document.querySelectorAll(".slide"),
+    arrowLeft = document.querySelector("#arrow-left"),
+    arrowRight = document.querySelector("#arrow-right"),
+    current = 0;
+  
+  // Clear all images
+  function reset() {
+    for (let i = 0; i < sliderImages.length; i++) {
+      sliderImages[i].style.display = "none";
+    }
+  }
+  
+  // Init slider
+  function startSlide() {
+    reset();
+    sliderImages[0].style.display = "block";
+  }
+  
+  // Show prev
+  function slideLeft() {
+    reset();
+    sliderImages[current - 1].style.display = "block";
+    current--;
+  }
+  
+  // Show next
+  function slideRight() {
+    reset();
+    sliderImages[current + 1].style.display = "block";
+    current++;
+  }
+  
+  // Left arrow click
+  arrowLeft.addEventListener("click", function() {
+    if (current === 0) {
+      current = sliderImages.length;
+    }
+    slideLeft();
+  });
+  
+  // Right arrow click
+  arrowRight.addEventListener("click", function() {
+    if (current === sliderImages.length - 1) {
+      current = -1;
+    }
+    slideRight();
+  });
+  
+  startSlide();
+  </script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- home section ends -->
+<script src="{% static 'js/package.js' %}"></script>
+<script src="{% static 'js/style.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

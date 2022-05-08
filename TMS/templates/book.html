@@ -1,0 +1,162 @@
+{% load static %}
+{% static 'images' as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Management System</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/package.css'%}">
+    <link rel="stylesheet" href="{% static 'css/book.css'%}"> 
+
+</head>
+<body>
+    
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <i class="fas fa-hiking"></i><span>G</span>antabya</a>
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}">home</a>
+        <a href="{% url 'AboutUs'%}">about</a>
+        <a href="{% url 'Packages'%}">packages</a>
+        <a href="{% url 'Reviews'%}">reviews</a>
+        <a href="{% url 'Gallery'%}">Gallery</a>
+        <a href="{% url 'login'%}">login</a>
+        <a href="{% url 'logout'%}">logout</a>
+        {%  if user.is_superuser %}
+        <a href='admin'>dashboard</a>
+        {% endif %}
+    </nav>
+
+</header>
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+   <h1 class="heading">
+      <span>b</span>
+      <span>o</span>
+      <span>o</span>
+      <span>k</span>
+      <span>y</span>
+      <span>o</span>
+      <span>u</span>
+      <span>r</span>
+      <span>t</span>
+      <span>r</span>
+      <span>i</span>
+      <span>p</span>
+   </h1>
+
+    
+</section>
+
+<!-- booking section starts  -->
+
+<section class="booking">
+   <form action="{% url 'Info' %}" method="post" class="book-form">
+      {% csrf_token %}
+      <div class="flex">
+         <div class="inputBox">
+            <span>name :</span>
+            <input type="text" placeholder="enter your name" name="name">
+         </div>
+         <div class="inputBox">
+            <span>email :</span>
+            <input type="email" placeholder="enter your email" name="email">
+         </div>
+         <div class="inputBox">
+            <span>phone :</span>
+            <input type="number" placeholder="enter your number" name="phone">
+         </div>
+         <div class="inputBox">
+            <span>address :</span>
+            <input type="text" placeholder="enter your address" name="address">
+         </div>
+         <div class="inputBox">
+            <span>where to :</span>
+            <input type="text" placeholder="place you want to visit" name="location">
+         </div>
+         <div class="inputBox">
+            <span>how many :</span>
+            <input type="number" placeholder="number of guests" name="guests">
+         </div>
+         <div class="inputBox">
+            <span>leaving :</span>
+            <input type="date" name="leaving">
+         </div>
+         <div class="inputBox">
+            <span>arrivals :</span>
+            <input type="date" name="arrivals">
+         </div>
+      </div>
+
+      <input type="submit" action="{% url 'Info' %}" value="submit" class="btn" name="send">
+
+   </form>
+
+</section>
+
+<!-- booking section ends -->
+
+
+
+
+
+  <!-- footer section starts  -->
+
+  <section class="footer">
+
+    <div class="box-container">
+ 
+       <div class="box">
+          <h3>quick links</h3>
+          <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
+          <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
+          <a href="packages.html"> <i class="fas fa-angle-right"></i> package</a>
+          <a href="booking.html"> <i class="fas fa-angle-right"></i> book</a>
+       </div>
+ 
+       <div class="box">
+          <h3>contact info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +977-9818709813 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +977 4445678 </a>
+          <a href="#"> <i class="fas fa-envelope"></i> Gantabya777@gmail.com </a>
+          <a href="#"> <i class="fas fa-map"></i> Kathmandu, Boudha - 44600 </a>
+       </div>
+ 
+    </div>
+ 
+ </section>
+
+
+
+
+
+
+
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+ <script src="{% static 'js/package.js' %}"></script>
+ 
+
+
+</body>
+</html> 
