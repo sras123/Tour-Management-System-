@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>about</title>
+   <title>Reviews</title>
 
    <!-- swiper css link  -->
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -34,8 +34,12 @@
         <a href="{% url 'Packages'%}">packages</a>
         <a href="{% url 'Reviews'%}">reviews</a>
         <a href="{% url 'Gallery'%}">Gallery</a>
-        <a href="{% url 'login'%}">login</a>
+        {% if user.is_authenticated %}
         <a href="{% url 'logout'%}">logout</a>
+        {% else %}
+        
+        <a href="{% url 'login'%}">login</a>
+        {% endif %}
         {%  if user.is_superuser %}
         <a href='admin'>dashboard</a>
         {% endif %}
@@ -96,10 +100,10 @@
 
       <div class="box">
          <h3>quick links</h3>
-         <a href="home.html"> <i class="fas fa-angle-right"></i> home</a>
-         <a href="about.html"> <i class="fas fa-angle-right"></i> about</a>
-         <a href="packages.html"> <i class="fas fa-angle-right"></i> package</a>
-         <a href="booking.html"> <i class="fas fa-angle-right"></i> book</a>
+         <a href="{% url 'home'%}"> <i class="fas fa-angle-right"></i> home</a>
+         <a href="{% url 'AboutUs'%}"> <i class="fas fa-angle-right"></i> about</a>
+         <a href="{% url 'Packages'%}"> <i class="fas fa-angle-right"></i> package</a>
+         <a href="{% url 'book'%}"> <i class="fas fa-angle-right"></i> book</a>
       </div>
 
       <div class="box">
