@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.core.mail import send_mail
 
 from .models import Destinations, ClientReview, TourGallery
 from .models import Destinations
@@ -126,6 +127,16 @@ def Info(request):
         guests= request.POST['guests']
         arrivals= request.POST['arrivals']
         leaving= request.POST['leaving']
+
+        #send an email
+        booking= "Name: "+ name+"\n"+ "Phone:"+ phone + "\n"+"Email:" + email +"\n" +"Address:" + address +"\n"+ "Location:"+ location + "\n"+"No of people:" + guests + "\n"+"Arrivals:" +arrivals +"\n"+ "Leaving:" + leaving+"\n"
+        
+        send_mail(
+            'Approve Package',
+            booking,
+            email,
+            ['tourmanagement2001@gmail.com'],
+        )
     return render(request, 'Info.html', {
         'name': name,
         'email': email,
