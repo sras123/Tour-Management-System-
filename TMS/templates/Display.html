@@ -1,11 +1,13 @@
 {% load static %}
-{% static 'Images' as baseUrl %}
+{% static 'images' as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Packages</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -43,35 +45,34 @@
     </nav>
 
 </header>
+<style>
+    body{
+  margin: 0;
+  padding: 0;
+  background: url("https://images.pexels.com/photos/4032145/pexels-photo-4032145.jpeg?cs=srgb&dl=pexels-ashok-j-kshetri-4032145.jpg&fm=jpg") no-repeat;
+  background-size: cover;
+}
+.box{
+  width: 450px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 121px;
+  text-align: center;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom:5%;
+  color: white;
+  font-family: 'Century Gothic',sans-serif;
+}
 
-<!-- gallery section starts  -->
+</style>
 
-<section class="gallery" id="gallery">
+<div class="box">
+   
+ <strong style="font-size: 18px; color:#aebfb9;font-weight: bolder;" >Dear Customer,</strong><div class="details" style="font-size: 18px; color:#aebfb9;font-weight: bolder;">Your have successfully purchased a package. Hope you have a wornderful journey. Enjoy!!!</div>
+ 
+</div>
 
-    <h1 class="heading">
-        <span>g</span>
-        <span>a</span>
-        <span>l</span>
-        <span>l</span>
-        <span>e</span>
-        <span>r</span>
-        <span>y</span>
-    </h1>
-
-    <div class="box-container">
-        {% for Images in Image %}
-        <div class="box">
-            <img src="{{Images.img.url}}" alt="">
-            <div class="content">
-                <h3>{{Images.gallerytitle}}</h3>
-                
-            </div>
-           
-        </div>
-        {% endfor %}
-    </div>
-
-</section>
+  
 
 
 <!-- footer section starts  -->
@@ -80,19 +81,19 @@
 
     <div class="box-container">
  
-        <div class="box">
-            <h3>quick links</h3>
-            <a href="{% url 'home'%}"> <i class="fas fa-angle-right"></i> home</a>
-            <a href="{% url 'AboutUs'%}"> <i class="fas fa-angle-right"></i> about</a>
-            <a href="{% url 'Packages'%}"> <i class="fas fa-angle-right"></i> package</a>
-            <a href="{% url 'book'%}"> <i class="fas fa-angle-right"></i> book</a>
-         </div>
+       <div class="box">
+          <h3>quick links</h3>
+          <a href="{% url 'home'%}"> <i class="fas fa-angle-right"></i> home</a>
+          <a href="{% url 'AboutUs'%}"> <i class="fas fa-angle-right"></i> about</a>
+          <a href="{% url 'Packages'%}"> <i class="fas fa-angle-right"></i> package</a>
+          <a href="{% url 'book'%}"> <i class="fas fa-angle-right"></i> book</a>
+       </div>
  
        <div class="box">
           <h3>contact info</h3>
           <a href="#"> <i class="fas fa-phone"></i> +977-9818709813 </a>
           <a href="#"> <i class="fas fa-phone"></i> +977 4445678 </a>
-          <a href="#"> <i class="fas fa-envelope"></i> tourmanagement2001@gmail.com </a>
+          <a href="#"> <i class="fas fa-envelope"></i>tourmanagement2001@gmail.com</a>
           <a href="#"> <i class="fas fa-map"></i> Kathmandu, Boudha - 44600 </a>
        </div>
  
@@ -101,14 +102,14 @@
  </section>
  
  <!-- footer section ends -->
+ 
+ 
 
-
-
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- custom js file link  -->
-<script src="{% static 'js/package.js' %}"></script>
-
-</body>
-</html>
-
+ <!-- swiper js link  -->
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+ 
+ <!-- custom js file link  -->
+ <script src="{% static 'js/package.js' %}"></script>
+ 
+ </body>
+ </html>

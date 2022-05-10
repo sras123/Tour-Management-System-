@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Destinations, ClientReview, TourGallery
+from .models import Destinations, ClientReview , TourGallery
 
 # Register your models here.
 
@@ -11,4 +11,5 @@ class users(admin.ModelAdmin):
 admin.site.register(Destinations)
 admin.site.register(ClientReview)
 admin.site.register(TourGallery)
-# admin.site.register(Gallery)
+
+

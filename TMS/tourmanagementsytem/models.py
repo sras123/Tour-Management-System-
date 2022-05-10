@@ -21,6 +21,25 @@ class ClientReview(models.Model):
 class TourGallery(models.Model):
     img= models.ImageField(upload_to='pics')
     gallerytitle = models.CharField(max_length=100)
+
+
+     
+# class packagedetail(models.Model):
+#     img1= models.ImageField(upload_to='pics')
+#     # img2= models.ImageField(upload_to='pics')
+#     # img3= models.ImageField(upload_to='pics')
+#     # img4= models.ImageField(upload_to='pics')
+#     destinationtitle = models.CharField(max_length=100)
+#     desc= models.TextField()
+     
+
+
+    
+       
+
+       
+
+
     
 
     

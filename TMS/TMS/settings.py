@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'TMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'tourmanagement',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

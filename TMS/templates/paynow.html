@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Paynow</title>
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{% static '/css/package.css' %}">
+  
+   <link rel="stylesheet" href="{% static 'css/payment.css'%}">
+
+
+</head>
+<body>
+    <header>
+       
+        <div id="menu-bar" class="fas fa-bars"></div>
+    
+        <a href="#" class="logo"> <i class="fas fa-hiking"></i><span>G</span>antabya</a>
+        <!-- <h2 style="color: white; font-size: 2rem;"> Purchase confirmed, {{user.username}}</h2> -->
+        <nav class="navbar">
+            <a href="{% url 'home'%}">home</a>
+            <a href="{% url 'AboutUs'%}">about</a>
+            <a href="{% url 'Packages'%}">packages</a>
+            <a href="{% url 'Reviews'%}">reviews</a>
+            <a href="{% url 'Gallery'%}">Gallery</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout'%}">logout</a>
+            {% else %}
+            
+            <a href="{% url 'login'%}">login</a>
+            {% endif %}
+            {%  if user.is_superuser %}
+            <a href='admin'>dashboard</a>
+            {% endif %}
+        </nav>
+    
+    </header>
+  
+<div class="container">
+
+    <form action="">
+
+        <div class="row">
+
+           
+            <div class="col">
+
+                <h3 class="title">Pay Now</h3>
+
+                <div class="inputBox">
+                    <span>cards accepted :</span>
+                    <img src="images/card_img.png" alt="" >
+                </div>
+                <div class="inputBox">
+                    <span>Amount:</span>
+                    <input type="number" placeholder="Rs" required>
+                </div>
+              
+
+            </div>
+    
+        </div>
+        
+
+     <button type="submit" class="submit-btn"><a href="{% url 'Display'%}">Confirm Payment</button></a>
+
+    </form>
+    
+
+
+</div>    
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+ 
+       <div class="box">
+          <h3>quick links</h3>
+          <a href="{% url 'home'%}"> <i class="fas fa-angle-right"></i> home</a>
+          <a href="{% url 'AboutUs'%}"> <i class="fas fa-angle-right"></i> about</a>
+          <a href="{% url 'Packages'%}"> <i class="fas fa-angle-right"></i> package</a>
+          <a href="{% url 'book'%}"> <i class="fas fa-angle-right"></i> book</a>
+       </div>
+ 
+       <div class="box">
+          <h3>contact info</h3>
+          <a href="#"> <i class="fas fa-phone"></i> +977-9818709813 </a>
+          <a href="#"> <i class="fas fa-phone"></i> +977 4445678 </a>
+          <a href="#"> <i class="fas fa-envelope"></i>tourmanagement2001@gmail.com </a>
+          <a href="#"> <i class="fas fa-map"></i> Kathmandu, Boudha - 44600 </a>
+       </div>
+ 
+    </div>
+ 
+ </section>
+ 
+ <!-- footer section ends -->
+ 
+ 
+
+ 
+ <!-- swiper js link  -->
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+ 
+ <!-- custom js file link  -->
+ <script src="{% static 'js/package.js' %}"></script>
+   
+
+ 
+ </body>
+ 
+ </html>

@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 from .models import Destinations, ClientReview, TourGallery
-from .models import Destinations
+
 
 
 
@@ -116,6 +116,27 @@ def Booking(request):
 def book(request):
     
     return render(request, 'book.html')
+
+
+def Tourdetails(request):
+    
+    return render(request, 'Tourdetails.html')
+
+
+def Payment(request):
+    
+    return render(request, 'Payment.html')
+
+def paynow(request):
+  
+    return render(request, 'paynow.html')
+
+def Display(request):
+  
+    return render(request, 'Display.html')
+    
+    
+   
 
 def Info(request):
     if request.method == "POST":
